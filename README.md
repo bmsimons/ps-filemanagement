@@ -1,7 +1,6 @@
 ps-filemanagement
 =================
 A PowerShell module that's able to handle specific file-related tasks.
-----------------------------------------------------------------------
 
 **Currently implemented functions:**
 - Get-Duplicates
