@@ -10,10 +10,10 @@ A PowerShell module that's able to handle specific file-related tasks.
 - Get-Directories
 
 **Some usage examples:**
-- Get-Duplicates("C:\Users", $true, "*.docx")
-- Get-FilesBiggerThan(200, "MB", "C:\", $true, "*.mov")
-- Get-FilesSmallerThan(50, "Kb", "C:\Windows", $true, "*.log")
-- Get-Files("C:\Users", $true, "*.*")
+- Get-Duplicates("C:\Users", $true, "\*.docx")
+- Get-FilesBiggerThan(200, "MB", "C:\", $true, "\*.mov")
+- Get-FilesSmallerThan(50, "Kb", "C:\Windows", $true, "\*.log")
+- Get-Files("C:\Users", $true, "\*.\*")
 - Get-Directories("C:\Users", $true)
 
 Arguments & other stuff:
