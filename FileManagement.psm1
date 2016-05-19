@@ -110,6 +110,53 @@ function Get-FilesSmallerThan {
     return $returnObject
 }
 
+function Get-Files {
+    $Path = $args[0][0];
+    $Recursive = $args[0][1];
+    $FileType = $args[0][2];
+
+    $returnObject = @();
+
+    If ($Recursive -eq $true)
+    {
+        Get-ChildItem "$Path" -Filter "$FileType" -Recurse -File -ErrorAction SilentlyContinue | % {
+            $returnObject += $_.FullName
+        }
+    }
+    Else
+    {
+        Get-ChildItem "$Path" -Filter "$FileType" -File -ErrorAction SilentlyContinue | % {
+            $returnObject += $_.FullName
+        }
+    }
+
+    return $returnObject
+}
+
+function Get-Directories {
+    $Path = $args[0][0];
+    $Recursive = $args[0][1];
+
+    $returnObject = @()
+
+    If ($Recursive -eq $true)
+    {
+        Get-ChildItem "$Path" -Directory -Recurse -ErrorAction SilentlyContinue | % {
+            $returnObject += $_.FullName
+        }
+    }
+    Else
+    {
+        Get-ChildItem "$Path" -Directory -ErrorAction SilentlyContinue | % {
+            $returnObject += $_.FullName
+        }
+    }
+
+    return $returnObject
+}
+
 Export-ModuleMember -Function 'Get-Duplicates'
 Export-ModuleMember -Function 'Get-FilesBiggerThan'
 Export-ModuleMember -Function 'Get-FilesSmallerThan'
+Export-ModuleMember -Function 'Get-Files'
+Export-ModuleMember -Function 'Get-Directories'
